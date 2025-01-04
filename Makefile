@@ -1,2 +1,2 @@
 all:
-	gcc -o main Module3_Silulation_Lab2.c
+	gcc -o main Module3SilulationLab2.c
