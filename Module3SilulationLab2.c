@@ -11,25 +11,7 @@ int main(int argc, char** argv) {
         fprintf(stderr, "Please provide the address of a file as an input.\n");
         return -1;
     }
-    
-    char *file = argv[2];
-    // Check for invalid sequences in the user input
-    if (strstr(file , "..") || strchr(file , '/') || strchr(file , '\\')) {
-        printf("Invalid filename.\n");
-        return 1;
-    }
-    
-    FILE* file = fopen(argv[1], "r");
-    if (file == NULL) {
-        fprintf(stderr, "Failed to open file: %s\n", argv[1]);
-        return -1;
-    }
-
-    fseek(file, 0, SEEK_END);
-    long file_size = ftell(file);
-    fclose(file);
-
-    printf("File size: %ld bytes\n", file_size);
-
-    return 0;
+    char cmd[BUFSIZE] = "wc -c < ";
+    strcat(cmd, argv[1]);
+    system(cmd);
 }
